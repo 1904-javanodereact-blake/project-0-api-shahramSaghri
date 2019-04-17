@@ -1,21 +1,23 @@
 import { User } from "./model/user";
-import { Spaceship } from "./model/spaceship";
+import { Role } from "./model/role";
+//import { Requests } from "./model/reimbursment";
+
+// export let requests: Requests[] = [
+//   new Requests(1, 3, '2019-04-01'),
+//   new Requests(2, 5, '2019-04-02'),
+//   new Requests(3, 1, '2019-04-03'),
+//   new Requests(4, 4, '2019-04-04'),
+//   new Requests(5, 2, '2019-04-05'),
+//   new Requests(6, 3, '2019-04-06'),
+// ];
 
 export let users: User[] = [
-  new User(1, 'blake', 'pass', 'blake', 'admin'),
-  new User(2, 'Bradley', 'pass', 'Bradley'),
-  new User(3, 'Shahram', 'pass', 'Shahram'),
-  new User(4, 'Pj', 'pass', 'Pj'),
-  new User(5, 'Danae', 'pass', 'Danae'),
-  new User(6, 'Fred', 'pass', 'Fred'),
+  new User(1, 'username', 'password', 'shahram', 'saghri', 'email', new Role(1, 'finance-manager'))
+  //new User(2, 'Bradley')
+  // new Employee(3, 'Shahram'),
+  // new Employee(4, 'Pj'),
+  // new Employee(5, 'Danae'),
+  // new Employee(6, 'Fred'),
 ];
 
-export let spaceships: Spaceship[] = [
-  new Spaceship(1, 2, 'Enterprise', 5000, 5000, 'its a ship'),
-  new Spaceship(2, 2, 'Tesla', 5000, 5000, 'its a ship'),
-  new Spaceship(3, 2, 'SS Minow', 5000, 5000, 'its a ship'),
-  new Spaceship(4, 2, 'X-Wing', 5000, 5000, 'its a ship'),
-  new Spaceship(5, 4, 'Salmon Catcher', 5000, 5000, 'its a ship'),
-  new Spaceship(6, 6, 'Serrenity', 5000, 5000, 'its a ship'),
-  new Spaceship(7, 3, 'Yes', 5000, 5000, 'its a ship'),
-];
+
