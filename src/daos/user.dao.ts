@@ -36,9 +36,9 @@ export async function readAllUsers()
   {
     client = await connectionPool.connect();
     console.log('connected successfully');
-    const results = await client.query('SELECT * FROM "ERS".emp_user');
+    const results = await client.query('select * from "ERS".emp_user');
     console.log(results.rows);
-    return results.rows[0];
+    return results.rows;
   }
   catch(err)
   {

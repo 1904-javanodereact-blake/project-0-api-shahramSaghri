@@ -58,7 +58,7 @@ userRouter.post('', (req, res) => {
   res.send(user);
 });
 
-userRouter.patch('', [ authMiddleware(['admin']), async(req, res) => {
+userRouter.patch('/:id', [ authMiddleware(['admin']), async(req, res) => {
   const { body } = req; // destructuring
   console.log(`updating user`, body);
   let user = await userDao.updateByID(body.userId, body.username, body.password, 
