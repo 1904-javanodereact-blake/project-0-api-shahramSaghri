@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // attach the specific users session data to req.session
 app.use(sessionMiddleware);
 
-
+const myPort = process.env.PORT || 8080;
 
 /**
  * Register Routers
@@ -32,7 +32,7 @@ app.use('/reimbursements', reimbRouter);
 //readAllUsers();
 
 // start up the application
-app.listen(8081, () => {
+app.listen(myPort, () => {
   console.log(`application started`);
 });
 
