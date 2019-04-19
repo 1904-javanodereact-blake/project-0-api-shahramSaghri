@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // attach the specific users session data to req.session
 app.use(sessionMiddleware);
 
-const myPort = process.env.PORT || 8080;
+const myPort = process.env.PORT || 8081;
 
 /**
  * Register Routers
