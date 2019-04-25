@@ -16,11 +16,12 @@ export const userRouter = express.Router();
  * endpoint: /users
  */
 userRouter.get('', [
-  authMiddleware(['admin']),
+  authMiddleware(['finance-manager']),
   async(req, res) => {
     console.log('retreiving all users');
     const user = await userDao.readAllUsers();
     console.log(`This is my user = ${user}`);
+    console.log(user);
     if (user) {
     // attach the user data to the session object
       req.session.user = user;
@@ -52,7 +53,7 @@ userRouter.get('/:id', [authMiddleware(['finance-manager']), async(req, res) => 
 userRouter.post('', (req, res) => {
   console.log(`creating user`, req.body);
   const user: User = req.body;
-  user.userId = Math.floor(Math.random() * 10000000);
+  user.userid = Math.floor(Math.random() * 10000000);
   //users.push(user);
   res.status(201);
   res.send(user);
@@ -61,7 +62,7 @@ userRouter.post('', (req, res) => {
 userRouter.patch('/:id', [ authMiddleware(['admin']), async(req, res) => {
   const { body } = req; // destructuring
   console.log(`updating user`, body);
-  let user = await userDao.updateByID(body.userId, body.username, body.password, 
+  let user = await userDao.updateByID(body.userid, body.username, body.password, 
                                       body.firstname, body.lastname, body.email, body.role);
   
   // const user = users.find((u) => {
@@ -86,6 +87,7 @@ userRouter.post('/login', async (req, res) => {
   console.log('I am in login');
   const { username, password } = req.body;
   const user = await userDao.findByUsernameAndPassword(username, password);
+  console.log(user) 
   if (user) {
     // attach the user data to the session object
     req.session.user = user;

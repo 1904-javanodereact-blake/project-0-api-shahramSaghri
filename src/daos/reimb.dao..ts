@@ -2,7 +2,7 @@ import { PoolClient } from 'pg';
 import { connectionPool } from '.'; //The opject that holds the connection
 import { convertSqlRole } from '../util/sql-role-conveter';
 import { convertSqlUser } from '../util/sql-user-conveter';
-import { convertSqlReimb } from '../util/sql-reimb-conveter';
+//import { convertSqlReimb } from '../util/sql-reimb-conveter';
 
 export async function findByUsernameAndPassword(username: string, password: string) {
   let client: PoolClient;
@@ -58,21 +58,18 @@ export async function findByID_Reimb(reimbursementID: number) {
   try {
     console.log('I am in findByID in side the Reimb');
     client = await connectionPool.connect();
-    const queryString = `SELECT * FROM "ERS".reimbursement AS re
-		JOIN "ERS".reimbursementstatus AS st
-			ON (re.status = st.statusid)
-		WHERE (re.reimbursementid = $1)`;
+    const queryString = `select *  from "ERS".reimbursement where status = $1`;
     const result = await client.query(queryString, [reimbursementID]);
     console.log(`result = ${result}`);
-    const reimb = result.rows[0];
-    if (reimb) {
-      const convertedReimb =  convertSqlReimb(reimb);
-      //const convertedUser = convertSqlUser(user);
-      //convertedUser.role = convertSqlRole(user);
-      return convertedReimb;
-    } else {
-      return undefined;
-    }
+    return result.rows;
+    // if (reimb) {
+    //   const convertedReimb =  convertSqlReimb(reimb);
+    //   //const convertedUser = convertSqlUser(user);
+    //   //convertedUser.role = convertSqlRole(user);
+    //   return convertedReimb;
+    // } else {
+    //   return undefined;
+    // }
   } catch (err) {
     console.log(err);
     return undefined;
@@ -90,15 +87,15 @@ export async function findByUserId_Reimb(userID: number) {
     WHERE re.author = $1`;
     const result = await client.query(queryString, [userID]);
     console.log(`result = ${result}`);
-    const reimb = result.rows[0];
-    if (reimb) {
-      const convertedReimb =  convertSqlReimb(reimb);
-      //const convertedUser = convertSqlUser(user);
-      //convertedUser.role = convertSqlRole(user);
-      return convertedReimb;
-    } else {
-      return undefined;
-    }
+    return result.rows;
+    // if (reimb) {
+    //   const convertedReimb =  convertSqlReimb(reimb);
+    //   //const convertedUser = convertSqlUser(user);
+    //   //convertedUser.role = convertSqlRole(user);
+    //   return convertedReimb;
+    // } else {
+    //   return undefined;
+    // }
   } catch (err) {
     console.log(err);
     return undefined;
@@ -140,7 +137,7 @@ export async function submitAndInsert(freimbursementid: number, fauthor: number,
                                       fresolver: number, fstatus: number, ftype: number) {
   let client: PoolClient;
   try {
-    console.log('I am in findByID');
+    console.log('I am in submitAndInsert');
     client = await connectionPool.connect();
     const queryString = `select "ERS".insert_reimb ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
     const result = await client.query(queryString, [freimbursementid, fauthor, famount, fdatesubmitted, 
@@ -150,7 +147,9 @@ export async function submitAndInsert(freimbursementid: number, fauthor: number,
     if (user) {
       const convertedUser = convertSqlUser(user);
       convertedUser.role = convertSqlRole(user);
-      return convertedUser;
+      console.log('Your Request was submitted Successfully')
+      //console.log(user)
+      return user;
     } else {
       return undefined;
     }

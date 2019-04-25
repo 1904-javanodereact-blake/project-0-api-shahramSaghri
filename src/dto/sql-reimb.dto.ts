@@ -1,6 +1,6 @@
 
 export class SqlReimb {
-  eimbursement_id = 0;
+  eimbursement_id;
   author = 0;
   amount = 0;
   date_submitted = 0;

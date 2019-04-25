@@ -36,7 +36,7 @@ export async function readAllUsers()
   {
     client = await connectionPool.connect();
     console.log('connected successfully');
-    const results = await client.query('select * from "ERS".emp_user');
+    const results = await client.query('select * from "ERS".emp_user order by userid');
     console.log(results.rows);
     return results.rows;
   }
@@ -56,12 +56,13 @@ export async function findByID(userID: number) {
   try {
     console.log('I am in findByID');
     client = await connectionPool.connect();
-    const queryString = `SELECT * FROM "ERS".emp_user as us
-    INNER JOIN "ERS".role as ro ON (us.userid = ro.roleid)
-    WHERE userid = $1`;
+    const queryString = `select * from "ERS".emp_user
+    where userid = $1;`;
     const result = await client.query(queryString, [userID]);
     console.log(`result = ${result}`);
+    
     const user = result.rows[0];
+    console.log('user in user.dao' + user)
     if (user) {
       const convertedUser = convertSqlUser(user);
       convertedUser.role = convertSqlRole(user);

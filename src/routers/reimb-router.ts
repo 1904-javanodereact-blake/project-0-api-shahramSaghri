@@ -66,8 +66,8 @@ reimbRouter.get('/author/userId/:userId', [authMiddleware(['finance-manager']), 
 reimbRouter.patch('', [ authMiddleware(['finance-manager']), async(req, res) => {
   const { body } = req; // destructuring
   console.log(`updating user`, body);
-  let user = await reimbDao.reimbUpdate(body.eimbursement_id, body.author, body.amount, body.date_submitted,
-    body.date_resolved, body.description, body.resolver, body.status, body.type);
+  let user = await reimbDao.reimbUpdate(body.reimbursementid, body.author, body.amount, body.datesubmitted,
+    body.dateresolved, body.description, body.resolver, body.status, body.type);
   
   if (!user) {
     res.sendStatus(404);
@@ -85,8 +85,8 @@ reimbRouter.patch('', [ authMiddleware(['finance-manager']), async(req, res) => 
 reimbRouter.post('', async(req, res) => {
   const { body } = req; // destructuring
   console.log(`insertin a new request`, body);
-  let user = await reimbDao.submitAndInsert(body.eimbursement_id, body.author, body.amount, body.date_submitted,
-    body.date_resolved, body.description, body.resolver, body.status, body.type);
+  let user = await reimbDao.submitAndInsert(body.reimbursementid, body.author, body.amount, body.datesubmitted,
+    body.dateresolved, body.description, body.resolver, body.status, body.type);
   
     if (!user) {
     res.sendStatus(404);
