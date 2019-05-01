@@ -19,6 +19,19 @@ app.use((req, res, next) => {
 // attach an actual object to req.body
 app.use(bodyParser.json());
 
+
+// add CORS
+app.use((req, resp, next) => {
+  console.log(req.get('host'));
+  (process.env.SHIP_API_STAGE === 'prod')
+    ? resp.header('Access-Control-Allow-Origin')
+    : resp.header('Access-Control-Allow-Origin', `${req.headers.origin}`);
+  resp.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  resp.header('Access-Control-Allow-Credentials', 'true');
+  resp.header('Access-Control-Allow-Methods', 'POST, GET, DELETE, PUT, PATCH');
+  next();
+ });
+ 
 // attach the specific users session data to req.session
 app.use(sessionMiddleware);
 

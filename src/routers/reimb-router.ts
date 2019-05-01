@@ -23,7 +23,6 @@ reimbRouter.get('', [
     console.log(`This is my user = ${user}`);
     if (user) {
     // attach the user data to the session object
-      req.session.user = user;
       res.json(user);
     } else {
       res.sendStatus(401);
@@ -101,16 +100,3 @@ reimbRouter.post('', async(req, res) => {
 
 });
 
-
-reimbRouter.post('/login', async (req, res) => {
-  console.log('I am in login');
-  const { username, password } = req.body;
-  const user = await reimbDao.findByUsernameAndPassword(username, password);
-  if (user) {
-    // attach the user data to the session object
-    req.session.user = user;
-    res.json(user);
-  } else {
-    res.sendStatus(401);
-  }
-});

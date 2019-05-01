@@ -84,7 +84,9 @@ export async function findByUserId_Reimb(userID: number) {
     console.log('I am in findByUserId_Reimb in side the Reimb');
     client = await connectionPool.connect();
     const queryString = `SELECT * FROM "ERS".reimbursement AS re
-    WHERE re.author = $1`;
+    JOIN "ERS".emp_user AS us
+    ON re.author = us.userid
+      WHERE re.author = $1`;
     const result = await client.query(queryString, [userID]);
     console.log(`result = ${result}`);
     return result.rows;

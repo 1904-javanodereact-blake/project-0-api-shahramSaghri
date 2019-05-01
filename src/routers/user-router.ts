@@ -24,12 +24,10 @@ userRouter.get('', [
     console.log(user);
     if (user) {
     // attach the user data to the session object
-      req.session.user = user;
       res.json(user);
     } else {
       res.sendStatus(401);
   }
-  res.json(user);
   }]);
 
 /**
