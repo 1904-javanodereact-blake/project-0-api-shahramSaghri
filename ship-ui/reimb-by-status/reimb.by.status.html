@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="home.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="reimb.by.status.css" />
 </head>
 
 <body>
  <!-- Nav Bar  -->
   <nav id="ship-nav" class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="../home/home.html">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,22 +25,20 @@
     <div class="collapse navbar-collapse" id="navbarsExample04">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="../home/home.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">Reimbursement</a>
+                aria-expanded="false">Reimbursement</a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="#">Empty</a>
-              <a class="dropdown-item" href="#">Empty</a>
-              <a class="dropdown-item" href="../reimb-by-status/reimb.by.status.html">Lookup by Request's Status</a>
-              <a class="dropdown-item" href="../reimb-by-user-id/reimb.by.user.id.html">LookUp by User ID</a>
+                <a class="dropdown-item" href="#">Empty</a>
+                <a class="dropdown-item" href="#">Empty</a>
+                <!-- <a class="dropdown-item" href="../reimb-by-status/reimb.by.status.html">Lookup by Request's Status</a> -->
+                <a class="dropdown-item" href="../reimb-by-user-id/reimb.by.user.id.html">LookUp by User ID</a>
             </div>
-          </li>
-
+        </li>
         <!-- <li class="nav-item">
-
-          <a class="nav-link" href="../reimb-by-user-id/reimb.by.user.id.html">Reimbursement</a>
+          <a class="nav-link" href="#">Link</a>
         </li> -->
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
@@ -63,11 +61,20 @@
     </div>
   </nav>
 <!-- End of Nav Bar -->
-  <div class="container">
-    <div id="ship-container" class="row">
-      
-    </div>
+<div class="form-group" onclick= "findRimbrstByStatus()">
+  <label for="user-id-input">User Id:</label>
+  <input type="number" class="form-control" id="user-id-input" aria-describedby="emailHelp" placeholder="Enter User Id">
+  <button  class="btn btn-primary" >Submit</button>
+</div>
+  
+
+
+<div class="container">
+  <div id="user-container" class="row">
+    
   </div>
+</div>
+
 
 
 </body>
@@ -77,6 +84,6 @@
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
   crossorigin="anonymous"></script>
-<script src="home.js"></script>
+<script src="reimb.by.status.js"></script>
 
 </html>

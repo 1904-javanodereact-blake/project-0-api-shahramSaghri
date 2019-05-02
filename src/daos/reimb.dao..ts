@@ -58,7 +58,12 @@ export async function findByID_Reimb(reimbursementID: number) {
   try {
     console.log('I am in findByID in side the Reimb');
     client = await connectionPool.connect();
-    const queryString = `select *  from "ERS".reimbursement where status = $1`;
+    const queryString = `SELECT * FROM "ERS".emp_user AS us
+    JOIN "ERS".reimbursement AS re
+    	ON us.userid = re.author
+		JOIN "ERS".reimbursementstatus AS res
+			ON re.status = res.statusid
+		    WHERE re.status = $1`;
     const result = await client.query(queryString, [reimbursementID]);
     console.log(`result = ${result}`);
     return result.rows;
@@ -83,10 +88,12 @@ export async function findByUserId_Reimb(userID: number) {
   try {
     console.log('I am in findByUserId_Reimb in side the Reimb');
     client = await connectionPool.connect();
-    const queryString = `SELECT * FROM "ERS".reimbursement AS re
-    JOIN "ERS".emp_user AS us
-    ON re.author = us.userid
-      WHERE re.author = $1`;
+    const queryString = `SELECT * FROM "ERS".emp_user AS us
+    JOIN "ERS".reimbursement AS re
+    	ON us.userid = re.author
+		JOIN "ERS".reimbursementstatus AS res
+			ON re.status = res.statusid
+		    WHERE re.author = $1`;
     const result = await client.query(queryString, [userID]);
     console.log(`result = ${result}`);
     return result.rows;
