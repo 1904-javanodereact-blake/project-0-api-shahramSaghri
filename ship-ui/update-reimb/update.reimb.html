@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="reimb.by.user.id.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="update.reimb.css" />
 </head>
 
 <body>
@@ -29,14 +29,17 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">Reimbursement</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="../update-reimb/update.reimb.html">Update Reimbursment Status</a>
-              <a class="dropdown-item" href="../submit-new-request/submit.new.request.html">Submit New Request</a>
-              <a class="dropdown-item" href="../reimb-by-status/reimb.by.status.html">Lookup by Request's Status</a>
-              <!-- <a class="dropdown-item" href="../reimb-by-user-id/reimb.by.user.id.html">LookUp by User ID</a> -->
-            </div>
-          </li>
+                aria-expanded="false">Reimbursement</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="../update-reimb/update.reimb.html">Update Reimbursment Status (Current)</a>
+                  <a class="dropdown-item" href="../submit-new-request/submit.new.request.html">Submit New Request</a>
+                  <a class="dropdown-item" href="../reimb-by-status/reimb.by.status.html">Lookup by Request's Status</a>
+                  <a class="dropdown-item" href="../reimb-by-user-id/reimb.by.user.id.html">LookUp by User ID</a>
+                </div>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
@@ -58,9 +61,38 @@
     </div>
   </nav>
 <!-- End of Nav Bar -->
-<div class="form-group" onclick= "findReimbById()">
-  <label for="user-id-input">User Id:</label>
-  <input type="number" class="form-control" id="user-id-input" aria-describedby="emailHelp" placeholder="Enter User Id">
+
+
+<div class="form-group" onclick= "updateRequest()">
+  <label for="reimbursement-id-input">Reimbursement ID:</label>
+  <input type="number" class="form-control" id="reimbursement-id-input" aria-describedby="emailHelp" placeholder="Enter User Id" required>
+  <br>
+  <label for="author-id-input">Author Id:</label>
+  <input type="number" class="form-control" id="author-id-input" aria-describedby="emailHelp" placeholder="Enter Author Id" required>
+  <br>
+  <label for="amount-input">Amount:</label>
+  <input type="number" class="form-control" id="amount-input" aria-describedby="emailHelp" placeholder="Enter amount">
+  <br>
+  <label for="datesubmitted-input">Date Submitted:</label>
+  <input type="text" class="form-control" id="datesubmitted-input" aria-describedby="emailHelp" placeholder="Enter Todays Date" required>
+  <br>
+  <label for="dateresolved-input">Date Resolved:</label>
+  <input type="text" class="form-control" id="dateresolved-input" aria-describedby="emailHelp" placeholder="Enter Resolving Date" required>
+  <br>
+  <label for="description-input">Description:</label>
+  <input type="text" class="form-control" id="description-input" aria-describedby="emailHelp" placeholder="Enter Expence Description">
+  <br>
+  <label for="resolver-id-input">Resolver Id:</label>
+  <input type="number" class="form-control" id="resolver-id-input" aria-describedby="emailHelp" placeholder="Enter Resolver Id" required>
+  <br>
+  <label for="status-code-input">Status Code:</label>
+  <input type="number" class="form-control" id="status-code-input" aria-describedby="emailHelp" placeholder="Enter Status Code" required>
+  <br>
+  <label for="type-code-input">Type Code:</label>
+  <input type="number" class="form-control" id="type-code-input" aria-describedby="emailHelp" placeholder="Enter Type Code" required>
+  
+  <br>
+  
   <button class="btn btn-primary" >Submit</button>
 </div>
   
@@ -73,7 +105,6 @@
 </div>
 
 
-
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
   crossorigin="anonymous"></script>
@@ -81,6 +112,6 @@
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
   crossorigin="anonymous"></script>
-<script src="reimb.by.user.id.js"></script>
+<script src="update.reimb.js"></script>
 
 </html>

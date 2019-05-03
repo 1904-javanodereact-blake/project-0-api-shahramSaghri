@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" media="screen" href="allUsers.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="update.user.css" />
 </head>
 
 <body>
+<!-- Nav Bar -->
   <nav id="ship-nav" class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="../home/home.html">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04"
@@ -30,7 +31,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">Reimbursement</a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="../update-reimb/update.reimb.html">Update Reimbursment Status</a>
+                <a class="dropdown-item" href="#">Empty</a>
                 <a class="dropdown-item" href="../submit-new-request/submit.new.request.html">Submit New Request</a>
                 <a class="dropdown-item" href="../reimb-by-status/reimb.by.status.html">Lookup by Request's Status</a>
                 <a class="dropdown-item" href="../reimb-by-user-id/reimb.by.user.id.html">LookUp by User ID</a>
@@ -46,10 +47,10 @@
           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">Users</a>
             <div class="dropdown-menu" aria-labelledby="dropdown04">
-              <a class="dropdown-item" href="../update-user/update.user.html">Update User (Current)</a>
-              <a class="dropdown-item" href="../allUsers/allUsers.html">Look up users</a>
-              <a class="dropdown-item" href="../userById/userById.html">Look up User by ID</a>
-            </div>
+                <a class="dropdown-item" href="../update-user/update.user.html">Update User (Current)</a>
+                <a class="dropdown-item" href="../allUsers/allUsers.html">Look up users</a>
+                <a class="dropdown-item" href="../userById/userById.html">Look up User by ID</a>
+              </div>
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -59,13 +60,23 @@
       </ul>
     </div>
   </nav>
+  <!-- End of Nav Bar -->
+
+  
+  
+  <div class="form-group" onclick= "updateUser()">
+    <label for="user-id-input">User Id:</label>
+    <input type="number" class="form-control" id="user-id-input" aria-describedby="emailHelp" placeholder="Enter User Id">
+    <button  class="btn btn-primary" >Submit</button>
+  </div>
+    
+ 
 
   <div class="container">
-    <div id="ship-container" class="row">
+    <div id="user-container" class="row">
       
     </div>
   </div>
-
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -74,6 +85,6 @@
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
   crossorigin="anonymous"></script>
-<script src="allUsers.js"></script>
+<script src="update.user.js"></script>
 
 </html>

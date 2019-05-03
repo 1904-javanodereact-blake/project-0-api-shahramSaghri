@@ -11,6 +11,9 @@ async function findUser() {
     console.log(resp);
     const user = await resp.json();
     console.log(user);
+    const {username, firstname, lastname} = user;
+
+    console.log(username + " " + firstname + " " + lastname);
 
     // const displayRetrivedUser = document.getElementById('user-name') 
     // displayRetrivedUser.innerText = user.username;
@@ -67,6 +70,25 @@ async function findUser() {
     cardTitle.classList = 'card-title';
     cardTitle.innerText = 'Username: ' + user.username;
     cardBody.appendChild(cardTitle);
+
+    const cardData = document.createElement('ul');
+  cardData.classList = 'list-group list-group-flush';
+  card.appendChild(cardData);
+
+  const speed = document.createElement('li');
+  speed.classList = 'list-group-item';
+  speed.innerText = 'First Name:' + firstname;
+  cardData.appendChild(speed);
+
+  const weight = document.createElement('li');
+  weight.classList = 'list-group-item';
+  weight.innerText = 'Last Name:' + lastname;
+  cardData.appendChild(weight);
+
+  const userContainer = document.getElementById('user-container');
+  userContainer.innerHtml = '';
+  console.log('removed');
+  userContainer.append(card);
 
 }
 

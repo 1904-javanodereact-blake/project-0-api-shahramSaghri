@@ -30,12 +30,12 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">Reimbursement</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="#">Empty</a>
-                <a class="dropdown-item" href="#">Empty</a>
-                <!-- <a class="dropdown-item" href="../reimb-by-status/reimb.by.status.html">Lookup by Request's Status</a> -->
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+                <a class="dropdown-item" href="../update-reimb/update.reimb.html">Update Reimbursment Status</a>
+                <a class="dropdown-item" href="../submit-new-request/submit.new.request.html">Submit New Request (Current)</a>
+                <a class="dropdown-item" href="../reimb-by-status/reimb.by.status.html">Lookup by Request's Status</a>
                 <a class="dropdown-item" href="../reimb-by-user-id/reimb.by.user.id.html">LookUp by User ID</a>
-            </div>
+              </div>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -46,11 +46,11 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">Users</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown04">
-            <a class="dropdown-item" href="../create-spaceship/create-spaceship.html">Create</a>
-            <a class="dropdown-item" href="../allUsers/allUsers.html">Look up users</a>
-            <a class="dropdown-item" href="../userById/userById.html">Look up User by ID</a>
-          </div>
+            <div class="dropdown-menu" aria-labelledby="dropdown04">
+              <a class="dropdown-item" href="../update-user/update.user.html">Update User</a>
+              <a class="dropdown-item" href="../allUsers/allUsers.html">Look up users</a>
+              <a class="dropdown-item" href="../userById/userById.html">Look up User by ID</a>
+            </div>
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -61,10 +61,39 @@
     </div>
   </nav>
 <!-- End of Nav Bar -->
-<div class="form-group" onclick= "findRimbrstByStatus()">
-  <label for="user-id-input">User Id:</label>
-  <input type="number" class="form-control" id="user-id-input" aria-describedby="emailHelp" placeholder="Enter User Id">
-  <button  class="btn btn-primary" >Submit</button>
+
+
+<div class="form-group" onclick= "submitRequest()">
+  <label for="reimbursement-id-input">Reimbursement ID:</label>
+  <input type="number" class="form-control" id="reimbursement-id-input" aria-describedby="emailHelp" placeholder="Enter User Id">
+  <br><br>
+  <label for="author-id-input">Author Id:</label>
+  <input type="number" class="form-control" id="author-id-input" aria-describedby="emailHelp" placeholder="Enter Author Id">
+  <br><br>
+  <label for="amount-input">Amount:</label>
+  <input type="number" class="form-control" id="amount-input" aria-describedby="emailHelp" placeholder="Enter amount">
+  <br><br>
+  <label for="datesubmitted-input">Date Submitted:</label>
+  <input type="text" class="form-control" id="datesubmitted-input" aria-describedby="emailHelp" placeholder="Enter Todays Date">
+  <br><br>
+  <!-- <label for="dateresolved-input">Date Resolved:</label>
+  <input type="number" class="form-control" id="dateresolved-input" aria-describedby="emailHelp" placeholder="Enter Resolving Date"> -->
+
+  <label for="description-input">Description:</label>
+  <input type="text" class="form-control" id="description-input" aria-describedby="emailHelp" placeholder="Enter Expence Description">
+  <br><br>
+  <!-- <label for="resolver-id-input">Resolver Id:</label>
+  <input type="number" class="form-control" id="resolver-id-input" aria-describedby="emailHelp" placeholder="Enter Resolver Id"> -->
+
+  <!-- <label for="status-code-input">Status Code:</label>
+  <input type="number" class="form-control" id="status-code-input" aria-describedby="emailHelp" placeholder="Enter Status Code">
+  <br><br> -->
+  <label for="type-code-input">Type Code:</label>
+  <input type="number" class="form-control" id="type-code-input" aria-describedby="emailHelp" placeholder="Enter Type Code">
+  
+  <br><br>
+  
+  <button class="btn btn-primary" >Submit</button>
 </div>
   
 
@@ -74,7 +103,6 @@
     
   </div>
 </div>
-
 
 
 </body>
