@@ -28,8 +28,10 @@ async function updateRequest() {
     // const dateresolved = null;
     // const resolver = null;
 
-     const newRequast = {reimbursementid, author, amount, datesubmitted, dateresolved, description, resolver, status, type};
-
+    const newRequast = {reimbursementid, author, amount, datesubmitted, dateresolved, description, resolver, status, type};
+    // if(author){
+    //     newRequest['author'] = author;
+    // }
     const response = await fetch('http://localhost:8081/reimbursements',{
         method: 'PATCH',
         credentials: 'include',

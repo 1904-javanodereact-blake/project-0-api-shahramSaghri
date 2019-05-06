@@ -30,7 +30,7 @@ async function findReimbById() {
       imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR4DMulKBYmEEwz-uFDm19ackR2d7h3nwD-khS9_RvD2Tqo_9s_g'
       break;
 
-    case 'joeyTribbianni_5':
+    case 'joeyTribbianni':
       imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcBcOZCQ_GH7Maq4gW2NgTIrIIDVaKVdydWK8u3p6lVfb58Neh6Q'
       break;
 
@@ -81,9 +81,18 @@ async function findReimbById() {
   cardData.appendChild(weight);
 
   const userContainer = document.getElementById('user-container');
-  userContainer.innerHtml = '';
-  console.log('removed');
-  userContainer.append(card);
+  // remove old user reimbursement div
+  const userReimbursementDivIdConstant = 'UserReimbursementDiv';
+  const formerUserReimbursementDiv = document.getElementById(userReimbursementDivIdConstant);
+  if (formerUserReimbursementDiv) {
+    formerUserReimbursementDiv.parentNode.removeChild(formerUserReimbursementDiv);
+  }
+  // add new user reimbursement div
+  const userReimbursementDiv = document.createElement('div');
+  userReimbursementDiv.id = userReimbursementDivIdConstant;
+  userContainer.append(userReimbursementDiv);
+
+  userReimbursementDiv.append(card);
 
   const reQuestTable = document.createElement("table");
   reQuestTable.classList = 'request-table';
@@ -173,7 +182,7 @@ async function findReimbById() {
   reQuestTable.appendChild(tblBody);
   //body.appendChild(reQuestTable);
 
-  userContainer.append(reQuestTable);
+  userReimbursementDiv.append(reQuestTable);
   reQuestTable.setAttribute("border", "2");
   //     row.classList = 'request-table-row';
   //     const tableCell_0 = document.createElement("TD");
